@@ -1,6 +1,6 @@
 import { StatusBar } from 'expo-status-bar'; //control over the appearance & behavior of the device's status bar
 import React, { useState } from 'react'; //allows components to store and update data that can change over time
-import {View, Image, Text, Alert, ScrollView, Button, StyleSheet} from 'react-native'; //allows functions such as images, text etc. to display in the devices
+import {View, Image, Text, Alert, ScrollView, TouchableOpacity, StyleSheet} from 'react-native'; //allows functions such as images, text etc. to display in the devices
 import { Picker } from '@react-native-picker/picker'; //allow users to select an option
 
 // Reusable Question component
@@ -81,7 +81,9 @@ export default function App() {
             />
 
             <View style={styles.buttonContainer}>
-                <Button title="Submit" onPress={handleSubmit} color="#4CAF50" />
+                <TouchableOpacity style={styles.button} onPress={handleSubmit}>
+                    <Text style={styles.buttonText}>Submit</Text>
+                </TouchableOpacity>
             </View>
 
             <StatusBar style="auto" />
@@ -121,5 +123,11 @@ const styles = StyleSheet.create({
     buttonContainer: {
         backgroundColor: '#4CAF50', //submit button set to green
         marginVertical: 20
-    }
+    },
+    buttonText: {
+        color: 'white',
+        fontSize: 18,
+        fontWeight: 'bold',
+        textAlign: 'center',
+    },
 });
